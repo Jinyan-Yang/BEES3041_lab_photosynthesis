@@ -1,10 +1,9 @@
 ---
-title: "BEES3041: Modelling the photosynthetic response to environmental conditions"
+title: 'BEES3041: Modelling the photosynthetic response to environmental conditions'
 output:
-  pdf_document: default
-  html_notebook: default
-  number_sections: TRUE
-  code_folding: hide
+  html_document: 
+      code_folding: hide
+      number_sections: true
 bibliography: data/bibliography.bib
 ---
 
@@ -14,7 +13,6 @@ bibliography: data/bibliography.bib
 ```{r logo, echo=FALSE, out.width = '30%'}
 knitr::include_graphics("data/logo.jpeg")
 ```
-
 
 
 # Introduction
@@ -79,7 +77,7 @@ In the model both parameters are modelled using a peaked form of the Arrhenius e
 **Q. Can you work out what parameter values you used?**
 
 Answer:
-```{r, include=TRUE}
+```{r}
 print(c(p$Vcmax25, p$Eav, p$deltaSv, p$Hdv))
 print(c(p$Jmax25, p$Eaj, p$deltaSj, p$Hdj))
 ```
@@ -87,7 +85,7 @@ print(c(p$Jmax25, p$Eaj, p$deltaSj, p$Hdj))
 **Q. Can you now tweak these values and explore how the functions respond to temperature?**
 
 Answer:
-```{r, include=TRUE}
+```{r,fig.show= 'hide'}
 Vcmax <- peaked_arrh(p$Vcmax25, p$Eav, Tleaf, p$deltaSv, p$Hdv)
 Vcmax2 <- peaked_arrh(p$Vcmax25, 40000, Tleaf, p$deltaSv, p$Hdv)
 Vcmax3 <- peaked_arrh(p$Vcmax25, 70000, Tleaf, p$deltaSv, p$Hdv)
